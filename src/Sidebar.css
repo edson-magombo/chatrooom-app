@@ -2,7 +2,7 @@
     color:white;
     background-color: purple;
     border-top: 1px solid #49274b;
-    max-width:250px;
+    max-width:200px;
 }
 .sidebar >hr {
     margin-top: 10px;
@@ -12,14 +12,14 @@
 .sidebar__header{
     display:flex;
     border-bottom:1px solid #49274b;
-    padding-bottom:10px;
-    padding: 13px;
+    padding-bottom:1px;
+    padding: 10px;
 }
-sidebar__info{
+.sidebar__info{
     flex:1;
 }
 .sidebar__info > h2{
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 900;
     margin-bottom: 5px;
 }
@@ -30,7 +30,7 @@ sidebar__info{
     font-weight: 450;
 }
 .sidebar__info >h3 > .MuiSvgIcon-root{
-    font-size: 14px;
+    font-size: 13px;
     margin-top: 1px;
     margin-right: 2px;
     color:green;
@@ -38,7 +38,7 @@ sidebar__info{
 .sidebar__header > .MuiSvgIcon-root{
     padding: 8px;
     color:purple;
-    font-size: 18px;
+    font-size: 15px;
     background-color: seashell;
     border-radius: 999px;
 }
