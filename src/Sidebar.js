@@ -19,11 +19,11 @@ function Sidebar(){
     const [Channels, setChannels]= useState([]);
     useEffect(() => {
         //run this code when the sidebar component loads
-        db.collection('room').onSnapshot(snapshot =>(
+        db.collection('rooms').onSnapshot(snapshot =>(
             setChannels(
-                snapshot.doc.map(doc=>({
+                snapshot.docs.map(doc=>({
                     id:doc.id,
-                    name: doc.data().name
+                    name: doc.data().name,
                 }))
             )
         )
@@ -56,11 +56,11 @@ function Sidebar(){
         <SidebarOption Icon = {AddIcon} title= "Add Channels" />
 
 
-        {channels.map(channel =>(
-            <SidebarOption title= {channel.name}
-        ))}
+        {Channels.map((channel) =>(
+            <SidebarOption title = {channel.name} id= {channel.id} />
+        ) )}  
         </div>
-
+ 
     );
 }
 export default Sidebar;

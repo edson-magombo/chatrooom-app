@@ -1,5 +1,6 @@
 .sidebar{
     color:white;
+    flex:0.4;
     background-color: purple;
     border-top: 1px solid #49274b;
     max-width:200px;

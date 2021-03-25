@@ -5,5 +5,8 @@
   padding :10px 0;
   background-color: blueviolet;
   color:whitesmoke;
-
 } 
+.app_body{
+  display: flex;
+  height: 100vh;
+}
