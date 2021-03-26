@@ -42,7 +42,7 @@ function Sidebar(){
         <CreateIcon />
        
         </div>
-        <SidebarOption Icon = {InsertCommentIcon} title= "threads" />
+        <SidebarOption Icon = {InsertCommentIcon} title= "Threads" />
         <SidebarOption Icon = {InboxIcon} title= "Mentions & reactions" />
         <SidebarOption Icon = {DraftsIcon} title= "Saved items" />
         <SidebarOption Icon = {BookmarkBorderIcon} title= "Channel Browser" />
@@ -53,7 +53,7 @@ function Sidebar(){
         <hr />
         <SidebarOption Icon = {ExpandMoreIcon} title= "Channels" />
         <hr />
-        <SidebarOption Icon = {AddIcon} title= "Add Channels" />
+        <SidebarOption Icon = {AddIcon} addChannelOption title= "Add Channels" />
 
 
         {Channels.map((channel) =>(

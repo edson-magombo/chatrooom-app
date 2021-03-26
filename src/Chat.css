@@ -9,16 +9,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid lightgray;
+    padding: 11px;
+    border-bottom: 2px solid lightgray;
 }
 .chat__channelName{
+    color:rgb(24, 154, 206);
     display: flex;
-    text-transform: lowercase;
+    text-transform: uppercase;
 }
 .chat__channelName > .MuiSvgIcon-root {
     margin-left: 10px;
-    font-size: 18px;
+    font-size: 20px;
 }
 .chat__headerRight > p {
     display: flex;
