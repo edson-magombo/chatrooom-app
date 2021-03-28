@@ -5,10 +5,11 @@ import StarBorderOutLinedIcon, { InfoOutlined } from "@material-ui/icons/StarBor
 import Message from "./Message";
 import InfoOutlinedIcon  from "@material-ui/icons/InfoOutlined";
 import db from "./firebase";
+import ChatInput from "./ChatInput"
 
 function Chat(){
     const {roomId} = useParams();
-    const [roomDetails, setRoomDetails] = useState(null);
+    const [roomDetails, setRoomDetails] = useState();
     const [roomMessages, setRoomMessages]= useState([]);
     useEffect(() =>{
         if (roomId){
@@ -24,7 +25,7 @@ function Chat(){
             snapshot => setRoomMessages(
                 snapshot.docs.map((doc) => doc.data())
             )
-        )  
+        );  
     }, [roomId]);
     console.log(roomDetails);
     console.log("MESSAGES>>>>", roomMessages);
@@ -56,6 +57,8 @@ function Chat(){
                 />
                 ))}
             </div>
+
+           <ChatInput channelName = {roomDetails?.name}  channelId />
         </div>
     )
 }
