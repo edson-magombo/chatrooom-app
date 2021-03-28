@@ -6,10 +6,10 @@ import { useStateValue } from './StateProvider';
 import {actionTypes} from "./reducer";
 function Login(){
     const [state, dispatch] = useStateValue();
-    const signIn =(e)=>{
+    const signIn =()=>{
         auth
         .signInWithPopup(provider)
-        .then(result =>{
+        .then((result) =>{
             console.log(result);
             dispatch({
                 type:actionTypes.SET_USER,
@@ -17,7 +17,7 @@ function Login(){
             })
 
         })
-        .catch(Error =>{
+        .catch((Error) =>{
             alert(Error.message);
         });
     };

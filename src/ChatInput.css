@@ -12,11 +12,11 @@
     position: fix;
     bottom: 30px;
     width: 70%;
-    border: 2px solid gray;
+    border: 2px solid gray; 
     border-radius: 10px;
-    padding: 20px;
+    padding: 15px;
 }
 .chatInput > form >button{
     background-color:rgb(67, 67, 201) !important;
     color: white;
-}
+}  

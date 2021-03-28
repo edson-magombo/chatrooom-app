@@ -9,7 +9,7 @@ import { useStateValue } from "./StateProvider";
 
 function App() {
 
-const [{user}, dispatch]= useStateValue(); 
+const [{user}, dispatch]= useStateValue(null); 
 
   return (
     <div className="app">

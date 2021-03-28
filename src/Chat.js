@@ -13,12 +13,12 @@ function Chat(){
     const [roomMessages, setRoomMessages]= useState([]);
     useEffect(() =>{
         if (roomId){
-            db.collection('rooms')
+            db.collection("rooms")
             .doc(roomId)
             .onSnapshot((snapshot) =>     
            setRoomDetails(snapshot.data()) )
         }  
-        db.collection('rooms').doc(roomId)
+        db.collection("rooms").doc(roomId)
         .collection('messages')
         .orderBy('timestamp', 'asc')
         .onSnapshot(
@@ -58,7 +58,7 @@ function Chat(){
                 ))}
             </div>
 
-           <ChatInput channelName = {roomDetails?.name}  channelId />
+           <ChatInput channelName = {roomDetails?.name} channelId />
         </div>
     )
 }
