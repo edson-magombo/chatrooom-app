@@ -2,7 +2,7 @@ import React from "react";
 import "./SidebarOption.css";
 import { useHistory } from "react-router-dom";
 import db from "./firebase";
-function SidebarOption({Icon, title, id, addChannelOption}){
+function SidebarOption({ Icon, title, id, addChannelOption }){
     const history = useHistory();
     const selectChannel  = () => {
         if (id){
@@ -13,7 +13,7 @@ function SidebarOption({Icon, title, id, addChannelOption}){
         }
     };
     const addChannel = () =>{
-        const channelName = prompt('Please enter the channel Name');
+        const channelName = prompt('Please Enter the Channel Name');
         if (channelName){
             db.collection('rooms').add({
                 name:channelName,

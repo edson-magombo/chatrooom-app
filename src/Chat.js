@@ -5,7 +5,7 @@ import StarBorderOutLinedIcon, { InfoOutlined } from "@material-ui/icons/StarBor
 import Message from "./Message";
 import InfoOutlinedIcon  from "@material-ui/icons/InfoOutlined";
 import db from "./firebase";
-import ChatInput from "./ChatInput"
+import ChatInput from "./ChatInput";
 
 function Chat(){
     const {roomId} = useParams();
@@ -15,14 +15,14 @@ function Chat(){
         if (roomId){
             db.collection("rooms")
             .doc(roomId)
-            .onSnapshot((snapshot) =>     
+            .onSnapshot((snapshot) =>  
            setRoomDetails(snapshot.data()) )
         }  
-        db.collection("rooms").doc(roomId)
+        db.collection('rooms').doc(roomId)
         .collection('messages')
         .orderBy('timestamp', 'asc')
         .onSnapshot(
-            snapshot => setRoomMessages(
+            (snapshot) => setRoomMessages(
                 snapshot.docs.map((doc) => doc.data())
             )
         );  
@@ -43,7 +43,7 @@ function Chat(){
                   <div className= "chat__headerRight">
                       <p>
                       <InfoOutlinedIcon /> Details
-                      </p>
+                       </p>
                   </div>
 
             </div>
@@ -55,11 +55,11 @@ function Chat(){
                 user={user}
                 userImage = {userImage}
                 />
-                ))}
+             ))}
             </div>
-
+            
            <ChatInput channelName = {roomDetails?.name} channelId />
-        </div>
+        </div> 
     )
 }
 export default Chat;

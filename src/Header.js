@@ -15,7 +15,6 @@ function Header(){
             <Avatar className="header__avatar" 
             alt={user?.displayName}
             src={user?.photoURL}
-            
             />
             <AccessTimeIcon />
             </div>

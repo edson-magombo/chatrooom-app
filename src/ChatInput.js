@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import './ChatInput.css'
-// import SendIcon from '@material-ui/icons';
+import './ChatInput.css';
+// import SendIcon from '@material-ui/icons/Send';
+import Timestamp from "./firebase"
 import {useStateValue} from "./StateProvider";
 import db from './firebase';
 import firebase from "./firebase";
@@ -13,13 +14,23 @@ const sendMessage = (e) => {
     e.preventDefault();
      
     if (channelId){
-        db.collection('rooms').doc(channelId).collection()({
-        message:input,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        user : user.displayName,
-        userImage: user.photoURL,
-        }) 
+        let payload ={
+           
+                message: input,
+               // timestamp: firebase.firestore.Timestamp.now(),
+                user : user.displayName,  
+                userImage: user.photoURL,
+        }
+        db.collection("rooms").doc(channelId).collection('roomId').add(payload);
+    //     db.collection('rooms').doc(channelId).collection({
+    //     message: input,
+    //     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    //     user : user.displayName,  
+    //     userImage: user.photoURL,
+    // })
     }
+    // if (!input) return ;
+    // sendMessage(input)
     setInput("");
 };
   
@@ -29,8 +40,8 @@ const sendMessage = (e) => {
                 <input 
                 value={input}
                 onChange = {(e) => setInput(e.target.value)}
-                placeholder= {`Type a Message #${channelName?.toLowerCase()}`}/>
-                <button type = "submit" onClick={sendMessage}>
+                placeholder= {`Type a message #${channelName?.toLowerCase()}`}/>
+                <button type = "submit" onClick  ={sendMessage}>
                  SEND </button>
             </form>
             

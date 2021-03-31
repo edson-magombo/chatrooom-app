@@ -42,7 +42,7 @@ function Sidebar(){
         <h3> 
             <FiberManualRecordIcon />
             {user?.displayName}   
-        </h3>
+        </h3>  
         </div>
         <CreateIcon />
        
