@@ -13,7 +13,7 @@ function Message({message, timestamp, user, userImage}){
             <p>{message}</p>
         </div>
         </div>
-    );
+    ); 
     
     
 } 

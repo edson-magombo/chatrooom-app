@@ -27,8 +27,7 @@ function Chat(){
             )
         );  
     }, [roomId]);
-    console.log(roomDetails);
-    console.log("MESSAGES>>>>", roomMessages);
+    
  
     return(
         <div className= "chat">
@@ -54,11 +53,12 @@ function Chat(){
                 timestamp={timestamp}
                 user={user}
                 userImage = {userImage}
+                key= {timestamp}
                 />
              ))}
             </div>
             
-           <ChatInput channelName = {roomDetails?.name} channelId />
+           <ChatInput channelName = {roomDetails ?.name} channelId = {roomId} />
         </div> 
     )
 }

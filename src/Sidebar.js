@@ -18,7 +18,7 @@ import {useStateValue} from "./StateProvider";
 
 
 function Sidebar(){
-    const [Channels, setChannels]= useState([]);
+    const [channels, setChannels]= useState([]);
     const [{user}]= useStateValue();
 
 
@@ -61,7 +61,7 @@ function Sidebar(){
         <SidebarOption Icon = {AddIcon} addChannelOption title= "Add Channels" />
 
 
-        {Channels.map((channel) =>(
+        {channels.map((channel) =>(
             <SidebarOption title = {channel.name} id= {channel.id} />
         ) )}  
         </div>

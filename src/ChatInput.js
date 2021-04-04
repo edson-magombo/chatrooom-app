@@ -12,25 +12,17 @@ function ChatInput({channelName, channelId }){
     
 const sendMessage = (e) => {
     e.preventDefault();
-     
+     if (!input) return false;
     if (channelId){
-        let payload ={
-           
-                message: input,
-               // timestamp: firebase.firestore.Timestamp.now(),
-                user : user.displayName,  
-                userImage: user.photoURL,
-        }
-        db.collection("rooms").doc(channelId).collection('roomId').add(payload);
-    //     db.collection('rooms').doc(channelId).collection({
-    //     message: input,
-    //     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    //     user : user.displayName,  
-    //     userImage: user.photoURL,
-    // })
+        db.collection("rooms").doc(channelId).collection("messages").add({
+         message:input, 
+         timestamp: firebase.firestore.Timestamp.now(),
+         user: user.displayName,
+         userImage: user.photoURL,
+
+    });
     }
-    // if (!input) return ;
-    // sendMessage(input)
+
     setInput("");
 };
   
