@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import './ChatInput.css';
-// import SendIcon from '@material-ui/icons/Send';
-import Timestamp from "./firebase"
+// import timestamp from "./firebase"
 import {useStateValue} from "./StateProvider";
 import db from './firebase';
 import firebase from "./firebase";
@@ -12,11 +11,13 @@ function ChatInput({channelName, channelId }){
     
 const sendMessage = (e) => {
     e.preventDefault();
+    
      if (!input) return false;
+
     if (channelId){
         db.collection("rooms").doc(channelId).collection("messages").add({
          message:input, 
-         timestamp: firebase.firestore.Timestamp.now(),
+        //  timestamp: firebase.firestore.FieldValue.serverTimestamp(),
          user: user.displayName,
          userImage: user.photoURL,
 

@@ -9,7 +9,7 @@ import ChatInput from "./ChatInput";
 
 function Chat(){
     const {roomId} = useParams();
-    const [roomDetails, setRoomDetails] = useState();
+    const [roomDetails, setRoomDetails] = useState(null);
     const [roomMessages, setRoomMessages]= useState([]);
     useEffect(() =>{
         if (roomId){
@@ -20,13 +20,16 @@ function Chat(){
         }  
         db.collection('rooms').doc(roomId)
         .collection('messages')
-        .orderBy('timestamp', 'asc')
+        .orderBy( 'asc')
         .onSnapshot(
             (snapshot) => setRoomMessages(
                 snapshot.docs.map((doc) => doc.data())
             )
         );  
     }, [roomId]);
+
+    console.log(roomDetails);
+     console.log("MESSAGES>>>>" , roomMessages);
     
  
     return(
@@ -47,17 +50,20 @@ function Chat(){
 
             </div>
             <div className = "chat__messages">
-                {roomMessages.map(({message, timestamp, user, userImage}) =>(
+                {roomMessages.map(({message,
+                //   timestamp,
+                  user, userImage}) =>(
                 <Message
                 message={message}
-                timestamp={timestamp}
+               // timestamp={timestamp}
                 user={user}
                 userImage = {userImage}
-                key= {timestamp}
+            
                 />
              ))}
+               
             </div>
-            
+                
            <ChatInput channelName = {roomDetails ?.name} channelId = {roomId} />
         </div> 
     )
