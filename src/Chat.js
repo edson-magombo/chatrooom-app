@@ -6,6 +6,7 @@ import Message from "./Message";
 import InfoOutlinedIcon  from "@material-ui/icons/InfoOutlined";
 import db from "./firebase";
 import ChatInput from "./ChatInput";
+// import timestamp from  "./firebase"
 
 function Chat(){
     const {roomId} = useParams();
@@ -18,14 +19,13 @@ function Chat(){
             .onSnapshot((snapshot) =>  
            setRoomDetails(snapshot.data()) )
         }  
-        db.collection('rooms').doc(roomId)
-        .collection('messages')
-        .orderBy( 'asc')
-        .onSnapshot(
-            (snapshot) => setRoomMessages(
-                snapshot.docs.map((doc) => doc.data())
-            )
-        );  
+        db.collection("rooms").doc(roomId)
+        .collection("messages")
+        .orderBy( "timestamp", "asc" )
+        .onSnapshot((snapshot) =>
+             setRoomMessages(
+                snapshot.docs.map((doc) => doc.data()))
+        );
     }, [roomId]);
 
     console.log(roomDetails);
@@ -51,20 +51,22 @@ function Chat(){
             </div>
             <div className = "chat__messages">
                 {roomMessages.map(({message,
-                //   timestamp,
+                  timestamp,
                   user, userImage}) =>(
                 <Message
                 message={message}
-               // timestamp={timestamp}
+                timestamp={timestamp}
                 user={user}
                 userImage = {userImage}
+                key= {timestamp}
             
                 />
              ))}
-               
+                {/* <div>{roomMessages}</div> */}
             </div>
-                
-           <ChatInput channelName = {roomDetails ?.name} channelId = {roomId} />
+           
+                <div>{[roomMessages]}</div>
+           <ChatInput channelName = {roomDetails?.name} channelId = {roomId} />
         </div> 
     )
 }
