@@ -17,8 +17,7 @@ const sendMessage = (e) => {
     if (channelId){
         db.collection("rooms").doc(channelId).collection("messages").add({
          message : input, 
-          timestamp:
-          firebase.firestore.FieldValue.serverTimestamp(),
+          timestamp: firebase.firestore.serverTimestamp(),
          user: user.displayName,
          userImage: user.photoURL,
 
