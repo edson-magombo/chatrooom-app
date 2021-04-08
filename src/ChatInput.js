@@ -3,7 +3,7 @@ import './ChatInput.css';
 // import timestamp from "./firebase"
 import {useStateValue} from "./StateProvider";
 import db from './firebase';
-import firebase from "./firebase";
+import Timestamp from "./firebase";
 
 function ChatInput({channelName, channelId }){
     const [input, setInput] = useState("");
@@ -17,7 +17,7 @@ const sendMessage = (e) => {
     if (channelId){
         db.collection("rooms").doc(channelId).collection("messages").add({
          message : input, 
-          timestamp: firebase.firestore.serverTimestamp(),
+         timestamp: Timestamp.now(),
          user: user.displayName,
          userImage: user.photoURL,
 
