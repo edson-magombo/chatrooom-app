@@ -1,23 +1,26 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './ChatInput.css';
-// import timestamp from "./firebase"
 import {useStateValue} from "./StateProvider";
 import db from './firebase';
-import Timestamp from "./firebase";
+import * as Firebase from "./firebase";
 
-function ChatInput({channelName, channelId }){
+function ChatInput(props){
     const [input, setInput] = useState("");
     const [{user}] = useStateValue();
+    useEffect(()=>{
+        console.log("lets check date", Date.now());
+        
+    }, [])
     
 const sendMessage = (e) => {
     e.preventDefault();
     
      if (!input) return false;
 
-    if (channelId){
-        db.collection("rooms").doc(channelId).collection("messages").add({
+    if (props.channelId){
+        db.collection("rooms").doc(props.channelId).collection("messages").add({
          message : input, 
-         timestamp: Timestamp.now(),
+         timestamp: Date.now(),
          user: user.displayName,
          userImage: user.photoURL,
 
@@ -33,9 +36,9 @@ const sendMessage = (e) => {
                 <input 
                 value={input}
                 onChange = {(e) => setInput(e.target.value)}
-                placeholder= {`Type a message #${channelName?.toLowerCase()}`}/>
+                placeholder= {`Type a message #${props.channelName?.toLowerCase()}`}/>
                 <button type = "submit" onClick  ={sendMessage}>
-                 SEND </button>
+                 SEND{"  "} </button>
             </form>
             
         </div>

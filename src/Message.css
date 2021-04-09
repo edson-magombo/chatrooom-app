@@ -2,7 +2,9 @@
     display: flex;
     align-items: center;
     padding-left: 20px;
-    /* background-color: ; */
+    color: black;
+    border-radius: 90px;
+    /* background-color:rgb(243, 240, 240) ; */
    
 }
 .message >img{
