@@ -1,10 +1,13 @@
+.msg{
+    padding-bottom: 5px;
+}
 .message{
     display: flex;
     align-items: center;
     padding-left: 20px;
     color: black;
-    border-radius: 90px;
-    /* background-color:rgb(243, 240, 240) ; */
+    border-radius: 95px;
+    background-color:rgb(243, 240, 240) ;
    
 }
 .message >img{
@@ -17,6 +20,7 @@
     padding-left: 10px;
 }
 .message__timestamp{
+    padding: 10px;
     color:gray;
     font-weight: 300;
     font-size: 12px;
