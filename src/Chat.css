@@ -11,6 +11,7 @@
     justify-content: space-between;
     padding: 11px;
     border-bottom: 2px solid lightgray;
+    position: unset !important;
 }
 .chat__channelName{
     color:rgb(24, 154, 206);

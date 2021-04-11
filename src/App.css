@@ -8,5 +8,7 @@
 } 
 .app_body{
   display: flex;
-  height: auto;
+  height: 90VH;
+  
+  /* overflow-y: unset; */
 }
